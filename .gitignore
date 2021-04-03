@@ -3,3 +3,12 @@
 *.aux
 *.fdb_latexmk
 *.synctex.gz
+*.bbl
+*.blg
+*.glo
+*.ist
+*.lof
+*.nlo
+*.out
+*.toc
+*.acn
