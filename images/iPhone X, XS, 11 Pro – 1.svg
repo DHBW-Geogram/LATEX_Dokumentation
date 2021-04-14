@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="812" viewBox="0 0 375 812">
+  <defs>
+    <clipPath id="clip-iPhone_X_XS_11_Pro_1">
+      <rect width="375" height="812"/>
+    </clipPath>
+  </defs>
+  <g id="iPhone_X_XS_11_Pro_1" data-name="iPhone X, XS, 11 Pro – 1" clip-path="url(#clip-iPhone_X_XS_11_Pro_1)">
+    <rect width="375" height="812" fill="#fff"/>
+    <text id="Geogram" transform="translate(106 101)" fill="#262626" font-size="50" font-family="MonotypeCorsiva, Monotype Corsiva"><tspan x="0" y="0">Geogram</tspan></text>
+    <g id="Rechteck_1" data-name="Rechteck 1" transform="translate(47 227)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="282" height="53" rx="7" stroke="none"/>
+      <rect x="0.5" y="0.5" width="281" height="52" rx="6.5" fill="none"/>
+    </g>
+    <g id="Rechteck_2" data-name="Rechteck 2" transform="translate(47 305)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="282" height="53" rx="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="281" height="52" rx="7.5" fill="none"/>
+    </g>
+    <text id="E-Mail-Adresse_Benutzername..." data-name="E-Mail-Adresse, Benutzername..." transform="translate(61 233)" fill="#aeaeae" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="11">E-Mail-Adresse, Benutzername...</tspan></text>
+    <text id="paul-d-f_web.de" data-name="paul-d-f@web.de" transform="translate(61 262)" fill="#0f0f0f" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="0">paul-d-f@web.de</tspan></text>
+    <text id="Passwort" transform="translate(61 313)" fill="#aeaeae" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="11">Passwort</tspan></text>
+    <text id="_" data-name="**************" transform="translate(61 342)" fill="#0f0f0f" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="0">**************</tspan></text>
+    <rect id="Rechteck_3" data-name="Rechteck 3" width="282" height="30" rx="8" transform="translate(44 385)" fill="#d62525"/>
+    <text id="Anmelden" transform="translate(159 393)" fill="#fff" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="11">Anmelden</tspan></text>
+    <line id="Linie_1" data-name="Linie 1" x2="113" transform="translate(47 445)" fill="none" stroke="#707070" stroke-width="1"/>
+    <line id="Linie_2" data-name="Linie 2" x2="110" transform="translate(215 445)" fill="none" stroke="#707070" stroke-width="1"/>
+    <text id="ODER" transform="translate(160 438)" fill="#6d6d6d" font-size="12" font-family="ArialMT, Arial"><tspan x="-17.335" y="11">ODER</tspan></text>
+    <text id="Anzeigen" transform="translate(292 336)" fill="#1a1a1a" font-size="12" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-26.669" y="0">Anzeigen</tspan></text>
+    <text id="Passwort_vergessen_" data-name="Passwort vergessen?" transform="translate(77 476)" fill="#4e4e4e" font-size="12" font-family="ArialMT, Arial"><tspan x="-57.36" y="11">Passwort vergessen?</tspan></text>
+    <text id="Info_Blog_API_Hilfe_Datenschutz" data-name="Info Blog API 
+Hilfe Datenschutz" transform="translate(78 753)" fill="#4e4e4e" font-size="12" font-family="ArialMT, Arial"><tspan x="-34.69" y="11">Info Blog API </tspan><tspan x="-47.021" y="25">Hilfe Datenschutz</tspan></text>
+    <text id="Dark" transform="translate(135 716)" fill="#292929" font-size="12" font-family="ArialMT, Arial"><tspan x="-12.668" y="11">Dark</tspan></text>
+  </g>
+</svg>
