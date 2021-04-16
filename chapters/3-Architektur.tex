@@ -21,7 +21,13 @@ Den Großteil der Backend-Aufgaben übernimmt die Entwicklungs-Platform Firebase
 
 Die \textbf{Authentifizierung} und das \textbf{Credentialmanagent} wird hierbei vollständig von Firebase übernommen und verwaltet. Über vordefinierte Programmierschnittstellen kann man anschließend auf die Funktionen von Firebase zugreifen. Ebenso wird im kostenlosen Lizenzmodell \glqq Spark Plan\grqq{} eine Cloud-Speicherung namens \glqq \textbf{Firestore}\grqq{} angeboten. In der darin enthaltenen \textbf{Echtzeitdatenbank} stehen jedoch nur 1 GiB Speicherplatz zur Verfügung. Da sich das Kernkonzept von Geogram hauptsächlich um Fotos dreht und die finanziellen Mittel der Gruppe nicht für ein kostenpflichtiges Lizenzmodell ausreichen, wurde zusätzlich ein \textbf{Foto-Server} mithilfe des Web-Frameworks \glqq Express\grqq{} implementiert. Der Foto-Server wird von der Projekt-Gruppe selbst gehostet und beinhaltet mehr als 1 Gib Speicherplatz.
 
-\subsection{Cloud Firestore\label{sup3.2.1:Unterpunkt-1}}
+\subsection{Credentialmanagent\label{sup3.2.1:Unterpunkt-1}}
+
+Die Verwaltung von Anmeldeinformationen wird in Geogram von der Entwicklungs-Plattform Firebase übernommen. Firebase bietet verschiedene Sign-in Methoden an. Neben der klassischen E-Mail/Passwort Kombination stellt Firebase noch die Sign-in Methoden von anderen Anbietern zur Verfügung. So kann man die Benutzerkonten von zum Beispiel Google, Facebook, Twitter oder GitHub für die Verwendung verwenden.
+
+Für die mobile Anwendung Geogram wird die klassische Sign-in Methode \glqq E-Mail und Passwort\grqq{} verwendet.
+
+\subsection{Cloud Firestore\label{sup3.2.2:Unterpunkt-2}}
 
 Die verwendete Firestore-Datenbank ist eine in der Cloud gehostete NoSQL-Datenbank. Über native SDKs können die iOS-, Android- und Web-Apps auf Firestore zugreifen.
 
@@ -78,6 +84,41 @@ In \autoref{fig:images_collection} ist ein beispielhaftes images-Dokument abgebi
     \label{fig:images_collection}
 \end{figure}
 
-\subsection{Foto-Server\label{sup3.2.1:Unterpunkt-1}}
+\subsection{Foto-Server\label{sup3.2.3:Unterpunkt-3}}
 
-Text
+Um das kostenpflichtige Lizenzmodell von Firebase zu umgehen, wurde ein eigener Foto-Server bereitsgestellt. Aufgrund des begrenzten Speicherplatzes (max. 1 GiB) im Firestore, werden nur noch die URL-Adressen der jeweiligen Bilder im Firestore abgelegt. Zu sehen ist das Abspeichern der URL-Adressen in den Abbildungen \autoref{fig:users_collection} und \autoref{fig:images_collection}. Die URL-Adressen sind alle nach folgendem URL-Schema aufgebaut:
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        \url{https://api.dhbw-geogram.de/uploads/{image_id}.jpg}
+    }%
+}
+
+Für die Umsetzung des Foto-Servers wurde sich für das Web-Framework \glqq Express\grqq{} entschieden. Es zählt zu den bekanntesten Web-Frameworks, welche in der Node.js Laufzeitumgebung beheimatet ist.
+
+Für die Verarbeitung von eingehenden Web-Anfragen, verwendet Express eine Art Pipeline-Mechanismus. In \autoref{lst:expressFotoServer} ist ein Ausschnitt aus dem Quellcode des Foto-Servers abgebildet. Im Code wird hierfür zunächst ein Express-Objekt erstellt. Mit der use-Methode können der Pipeline verschiedene Middlewares hinzugefügt werden. So gibt es zum Beispiel die Möglichkeit, bei der Verarbeitung der Web-Anfrage, einen Logger oder JSON-Parser hinzuzufügen. Die Express-Pipeline orientiert sich am REST-Paradigma. Der Foto-Server hat daher die get- und post-Methoden implementiert. Mit den beiden Methoden besteht die Möglichkeit ein Foto entweder dem Server hinzuzufügen (post) oder abzufragen (get).
+
+\begin{lstlisting}[label=lst:expressFotoServer, caption={Codeausschnitt aus dem Foto-Server}, captionpos=b]
+    ...
+
+    var app = express();
+
+    app.use(logger("dev"));
+    app.use(express.json({ limit: "50mb" }));
+    app.use(express.urlencoded({ extended: false, limit: "50mb" }));
+    app.use(cookieParser());
+    app.use(express.static(path.join(__dirname, "public")));
+    app.use(cors());
+
+    app.get("/upload1/:data", (req, res) => {
+        ...
+    )};
+
+    app.post("/upload1", (req, res) => {
+        ...
+    )};
+
+    ...
+\end{lstlisting}
+
+Gehostet und verwaltet wird der Foto-Server, wie beschrieben, von Paul Finkbeiner. 
