@@ -13,11 +13,49 @@ Wie in \autoref{fig:technologie} veranschaulicht, wird das Web-Framework \glqq I
 
 \section{Frontend\label{sec3.1:Unterpunkt-1}}
 
-Inhalt
+Für die Umsetzung des Frontend wurde das Framework \glqq Ionic\grqq{} verwendet.
+
+
+
+\begin{lstlisting}[label=lst:codeGeolocation, caption={Impelementierung der GPS-Abfrage}, captionpos=b, breaklines=true]
+...
+// get current geolocation
+Geolocation.getCurrentPosition().then((location) => {
+    setLocation({
+    coords: {
+        accuracy: location.coords.accuracy,
+        altitude: location.coords.altitude,
+        altitudeAccuracy: location.coords.altitudeAccuracy,
+        heading: location.coords.heading,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        speed: location.coords.speed,
+    },
+    timestamp: location.timestamp,
+    });
+    // reverse geolocation
+    axios
+    .get(
+        `https://api.opencagedata.com/geocode/v1/json?q=${location?.coords.
+        latitude}+${location?.coords.longitude}&key=bb44e70b618844faba7c
+        b23b580419e0`
+    )
+    .then((res) => {
+        setPosition(res.data.results[0].formatted);
+        setLocation((state: any) => {
+        return {
+            ...state,
+            position: res.data.results[0].formatted,
+        };
+        });
+    });
+});
+...
+\end{lstlisting}
 
 \section{Backend\label{sec3.2:Unterpunkt-2}}
 
-Den Großteil der Backend-Aufgaben übernimmt die Entwicklungs-Platform Firebase. Verwendet wird hierfür die kostenlose \glqq Spark Plan\grqq{}-Version von Firebase. 
+Den Großteil der Backend-Aufgaben übernimmt die Entwicklungsplatform Firebase. Verwendet wird hierfür die kostenlose \glqq Spark Plan\grqq{}-Version von Firebase. 
 
 Die \textbf{Authentifizierung} und das \textbf{Credentialmanagent} wird hierbei vollständig von Firebase übernommen und verwaltet. Über vordefinierte Programmierschnittstellen kann man anschließend auf die Funktionen von Firebase zugreifen. Ebenso wird im kostenlosen Lizenzmodell \glqq Spark Plan\grqq{} eine Cloud-Speicherung namens \glqq \textbf{Firestore}\grqq{} angeboten. In der darin enthaltenen \textbf{Echtzeitdatenbank} stehen jedoch nur 1 GiB Speicherplatz zur Verfügung. Da sich das Kernkonzept von Geogram hauptsächlich um Fotos dreht und die finanziellen Mittel der Gruppe nicht für ein kostenpflichtiges Lizenzmodell ausreichen, wurde zusätzlich ein \textbf{Foto-Server} mithilfe des Web-Frameworks \glqq Express\grqq{} implementiert. Der Foto-Server wird von der Projekt-Gruppe selbst gehostet und beinhaltet mehr als 1 Gib Speicherplatz.
 

@@ -2,8 +2,10 @@
     "cSpell.words": [
         "Backends",
         "Credentialmanagent",
+        "Entwicklungsplatform",
         "Finkbeiner",
         "Firestore",
+        "Geolocation",
         "Hopf",
         "Josua",
         "Middlewares",
@@ -13,10 +15,20 @@
         "SDKs",
         "Stoll",
         "Up's",
+        "axios",
         "gehostet",
         "gehostete",
         "hierachische",
         "profilepic",
         "whitebox"
+    ],
+    "spellright.language": [
+        "de",
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
     ]
 }
