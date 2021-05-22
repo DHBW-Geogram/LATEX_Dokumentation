@@ -63,7 +63,7 @@ Die \textbf{Authentifizierung} und das \textbf{Credentialmanagent} wird hierbei 
 
 Die Verwaltung von Anmeldeinformationen wird in Geogram von der Entwicklungs-Plattform Firebase übernommen. Firebase bietet verschiedene Sign-in Methoden an. Neben der klassischen E-Mail/Passwort Kombination stellt Firebase noch die Sign-in Methoden von anderen Anbietern zur Verfügung. So kann man die Benutzerkonten von zum Beispiel Google, Facebook, Twitter oder GitHub für die Verwendung verwenden.
 
-Für die mobile Anwendung Geogram wird die klassische Sign-in Methode \glqq E-Mail und Passwort\grqq{} verwendet.
+Für die mobile Anwendung Geogram wird die klassische Sign-in Methode \glqq E-Mail und Passwort\grqq{} und die Sign-In Methode \glqq Google\grqq{} verwendet.
 
 \subsection{Cloud Firestore\label{sup3.2.2:Unterpunkt-2}}
 
@@ -86,6 +86,7 @@ Die Dokumente der Sammlung \glqq users\grqq{} bilden die verschiedenen Benutzerp
 \begin{itemize}
     \item \textbf{biography}: Eine kurze Beschreibung über den Benutzer
     \item \textbf{email}: Die E-Mail Adresse des Benutzers
+    \item \textbf{likedImage}: Array mit den Image-IDs der Bilder, welche ein Like bekommen haben
     \item \textbf{profilepic}: URL zu dem Profilbild, welches im Foto-Server abgespeichert ist
     \item \textbf{userFirstName}: Vorname des Benutzers
     \item \textbf{userLastName}: Nachname des Benutzers
@@ -104,6 +105,7 @@ In \autoref{fig:users_collection} ist ein beispielhaftes users-Dokument abgebild
 Die Dokumente der Sammlung \glqq images\grqq{} bilden die verschiedenen Bilder von Geogram ab. Ein Bild wird durch folgende Felder definiert:
 
 \begin{itemize}
+    \item \textbf{comments}: Array mit allen Kommentaren und dazugehörigen Informationen
     \item \textbf{description}: Beschreibung des Bildes
     \item \textbf{id}: Eindeutige Id für das Bild
     \item \textbf{location}: GPS-Informationen für das Bild
