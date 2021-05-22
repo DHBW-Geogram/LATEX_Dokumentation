@@ -15,9 +15,22 @@ Wie in \autoref{fig:technologie} veranschaulicht, wird das Web-Framework \glqq I
 
 Für die Umsetzung des Frontend wurde das Framework \glqq Ionic\grqq{} verwendet.
 
+Ein Vorteil von Ionic ist es, dass der Code nicht für jede Platform einzeln geschrieben werden muss. Als Entwickler ist man dadurch nicht verpflichtet nativen Code zu implementieren.
 
+Jene Platform unabhängige Entwicklung ist durch den Einsatz von \glqq Ionic Tags\grqq{} möglich. Diese speziellen HTML-Elemente gewährleisten, dass das \glqq Look and Feel\grqq{} der App auf allen Platformen gegeben ist.
 
-\begin{lstlisting}[label=lst:codeGeolocation, caption={Impelementierung der GPS-Abfrage}, captionpos=b, breaklines=true]
+In \autoref{fig:ionicModules} sind die in der App \glqq Geogram\grqq{} verwendeten Ionic Tags abgebildet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{images/ionicModules.png}
+    \caption{Ionic Tags}
+    \label{fig:ionicModules}
+\end{figure}
+
+Damit die Bilder beim Hochladen auch geografische Informationen besitzen, wird mittels Ionic auf die GPS-Sensoren der Geräte zugegriffen. In \autoref{lst:codeGeolocation} ist genau jene Abfrage zu finden. Um die erhaltenen Längen- und Breitengrade in bekannte Straßen und Städte umzuwandeln, wird in Zeile 19 auf eine externe Dienstleistung zurückgegriffen.
+
+\begin{lstlisting}[label=lst:codeGeolocation, caption={Implementierung der GPS-Abfrage}, captionpos=b, breaklines=true]
 ...
 // get current geolocation
 Geolocation.getCurrentPosition().then((location) => {
